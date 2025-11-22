@@ -1,0 +1,30 @@
+.root {
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+.table-view {
+    -fx-cell-size: 26px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2f4f6f;
+}
+
+.table-view .column-header, .table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-radius: 4;
+    -fx-padding: 5 12 5 12;
+}
+
+.button:hover {
+    -fx-opacity: 0.9;
+}
+
+.label.total-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
