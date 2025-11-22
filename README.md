@@ -3,6 +3,9 @@ Expense Tracker (JavaFX + SQLite)
 A desktop expense-management application built using Java, JavaFX, SQLite, and JFreeChart.  
 The app allows users to add/edit/delete expenses, categorize them, view monthly analytics, and generate charts.
 
+How to run:
+Navigate into expense-tracker folder
+double click and execute the run.bat file, a command prompt window and the expense tracker app will appear
 
 
 Features
