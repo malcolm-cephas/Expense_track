@@ -1,0 +1,121 @@
+.root {
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #f4f4f9;
+}
+
+.label {
+    -fx-text-fill: #333333;
+}
+
+/* --- Input Fields --- */
+.text-field,
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-padding: 4 8;
+    /* Reduced padding slightly */
+    -fx-min-width: 120px;
+    /* Ensure minimum width */
+}
+
+.text-field:focused,
+.combo-box:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.4), 4, 0, 0, 0);
+}
+
+/* --- Buttons --- */
+.button {
+    -fx-background-color: #e5e7eb;
+    -fx-text-fill: #374151;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 6;
+    -fx-min-width: 80px;
+    /* Ensure buttons don't shrink too small */
+}
+
+.button:hover {
+    -fx-background-color: #d1d5db;
+}
+
+.button:pressed {
+    -fx-background-color: #9ca3af;
+}
+
+/* Primary Action Buttons (Add, Apply Filter) */
+.button.primary-btn {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+    -fx-border-color: #2563eb;
+}
+
+.button.primary-btn:hover {
+    -fx-background-color: #2563eb;
+}
+
+/* Danger Buttons (Delete) */
+.button.danger-btn {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-border-color: #dc2626;
+}
+
+.button.danger-btn:hover {
+    -fx-background-color: #dc2626;
+}
+
+/* Success/Action Buttons (Charts, Export) */
+.button.action-btn {
+    -fx-background-color: #10b981;
+    -fx-text-fill: white;
+    -fx-border-color: #059669;
+}
+
+.button.action-btn:hover {
+    -fx-background-color: #059669;
+}
+
+
+/* --- Table View --- */
+.table-view {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 1);
+    -fx-background-radius: 4;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #1f2937;
+    -fx-background-radius: 4 4 0 0;
+}
+
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 5 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f9fafb;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #e0e7ff;
+    -fx-text-background-color: #1e1b4b;
+}
+
+.label.total-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+    -fx-padding: 10px;
+    -fx-background-color: #e5e7eb;
+    -fx-background-radius: 6;
+}
