@@ -17,6 +17,8 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
     Page<Expense> findByUser(User user, Pageable pageable);
 
+    List<Expense> findByUserOrderByDateDesc(User user);
+
     @Query("SELECT e FROM Expense e WHERE e.user = :user AND e.date BETWEEN :startDate AND :endDate")
     Page<Expense> findByUserAndDateBetween(
             @Param("user") User user,

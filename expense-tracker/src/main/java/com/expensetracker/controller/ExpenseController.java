@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Map;
+import com.expensetracker.service.ExportService;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping("/api/expenses")
@@ -22,6 +29,33 @@ public class ExpenseController {
 
     @Autowired
     private ExpenseService expenseService;
+
+    @Autowired
+    private ExportService exportService;
+
+    @GetMapping("/export/csv")
+    public ResponseEntity<byte[]> exportCsv(@AuthenticationPrincipal UserDetails userDetails) throws IOException {
+        String csvData = exportService.exportToCsv(userDetails.getUsername());
+        byte[] bytes = csvData.getBytes(StandardCharsets.UTF_8);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=expenses.csv")
+                .contentType(MediaType.parseMediaType("text/csv"))
+                .body(bytes);
+    }
+
+    @GetMapping("/export/pdf")
+    public ResponseEntity<InputStreamResource> exportPdf(@AuthenticationPrincipal UserDetails userDetails) {
+        ByteArrayInputStream bis = exportService.exportToPdf(userDetails.getUsername());
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment; filename=expenses_report.pdf");
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
+    }
 
     @GetMapping
     public ResponseEntity<ApiResponse<Page<ExpenseDto>>> getExpenses(
